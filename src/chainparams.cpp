@@ -34,18 +34,6 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
     return genesis;
 }
-
-/**
- * Build the genesis block. Note that the output of its generation
- * transaction cannot be spent since it did not originally exist in the
- * database.
- *
- * CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=4a5e1e, nTime=1231006505, nBits=1d00ffff, nNonce=2083236893, vtx=1)
- *   CTransaction(hash=4a5e1e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
- *     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
- *     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
- *   vMerkleTree: 4a5e1e
- */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
     const char* pszTimestamp = "2016 Beaver, UT - Jan 15, 2019 UFO Video Analysis: youtube.com/watch?v=cFN7KofHpcY";
@@ -82,7 +70,7 @@ public:
         consensus.BIP66Height = 811879; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
         consensus.nPowTargetTimespan = 3 * 24 * 60 * 60; // 3 days
-        consensus.nPowTargetSpacing = 2 * 60;
+        consensus.nPowTargetSpacing = 2.5 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 6048; // 75% of 8064
@@ -112,10 +100,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0x41;
-        pchMessageStart[1] = 0x50;
-        pchMessageStart[2] = 0x52;
-        pchMessageStart[3] = 0x4E;
+        pchMessageStart[0] = 0x5A;
+        pchMessageStart[1] = 0x41;
+        pchMessageStart[2] = 0x50;
+        pchMessageStart[3] = 0x52;
         nDefaultPort = 1947;
         nPruneAfterHeight = 100000;
 
@@ -133,8 +121,9 @@ public:
         // vSeeds.emplace_back("nodecoins.com");
         vSeeds.emplace_back("38.29.203.106");
         vSeeds.emplace_back("166.62.80.133");
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,83);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,83);
+	vSeeds.emplace_back("104.131.144.233");
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,23);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,23);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,176);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x83, 0x35, 0xB2, 0x1E};
@@ -151,7 +140,6 @@ public:
         checkpointData = {
             {
                 {  0, uint256S("26ce50a7f4d3e1b192883ce47a13afc3d1b9b384a0532f1bdba63135fcf36a30")},
-                
             }
         };
 
@@ -224,7 +212,7 @@ public:
         // nodes with support for servicebits filtering should be at the top
         vSeeds.emplace_back("38.29.106.203.106");
         vSeeds.emplace_back("166.62.80.133");
-
+	vSeeds.emplace_back("104.131.144.233");
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,83);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,83);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
