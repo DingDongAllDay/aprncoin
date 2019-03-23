@@ -121,7 +121,7 @@ public:
         // vSeeds.emplace_back("nodecoins.com");
         vSeeds.emplace_back("38.29.203.106");
         vSeeds.emplace_back("166.62.80.133");
-	vSeeds.emplace_back("157.230.125.173");
+	vSeeds.emplace_back("134.209.53.25");
 	vSeeds.emplace_back("132.148.143.119");
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,28);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,23);
