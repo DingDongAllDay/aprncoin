@@ -63,11 +63,11 @@ public:
     CMainParams() {
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 840000;
-        consensus.BIP16Height = 218579; // 87afb798a3ad9378fcd56123c81fb31cfd9a8df4719b9774d71730c16315a092 - October 1, 2012
-        consensus.BIP34Height = 710000;
-        consensus.BIP34Hash = uint256S("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf");
-        consensus.BIP65Height = 918684; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
-        consensus.BIP66Height = 811879; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
+        consensus.BIP16Height = 1000; // c0c64ba3bc7ec1f27f196b922859a7ced96a0597de9cfba35fbdb00fd0ac38be
+        consensus.BIP34Height = 10000;
+        consensus.BIP34Hash = uint256S("18605be989a76706c894264f1c76f1b50ec8e5fc5459bcce3084d14f6d036306");
+        consensus.BIP65Height = 11000; // 
+        consensus.BIP66Height = 12000; // 
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
         consensus.nPowTargetTimespan = 3 * 24 * 60 * 60; // 3 days
         consensus.nPowTargetSpacing = 2.5 * 60;
@@ -141,6 +141,7 @@ public:
         checkpointData = {
             {
                 {  0, uint256S("26ce50a7f4d3e1b192883ce47a13afc3d1b9b384a0532f1bdba63135fcf36a30")},
+		{  10000, unint256S("18605be989a76706c894264f1c76f1b50ec8e5fc5459bcce3084d14f6d036306")},
             }
         };
 
